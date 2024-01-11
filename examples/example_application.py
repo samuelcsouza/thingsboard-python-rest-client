@@ -48,11 +48,13 @@ def main():
             # Creating a Device
             # Also, you can use default Device Profile:
             # default_device_profile_id = rest_client.get_default_device_profile_info().id
-            device_profile = DeviceProfile(name="Thermometer",
+            device_profile = DeviceProfile(name="test",
+                                           type="DEFAULT",
+                                           transport_type="MQTT",
                                            profile_data=DeviceProfileData(configuration={"type": "DEFAULT"},
                                                                           transport_configuration={"type": "DEFAULT"}))
             device_profile = rest_client.save_device_profile(device_profile)
-            device = Device(name="Thermometer 1", label="Thermometer 1",
+            device = Device(name="Test from library", label="test 1",
                             device_profile_id=device_profile.id)
             device = rest_client.save_device(device)
 
